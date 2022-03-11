@@ -1,7 +1,6 @@
 import sys
 import pygame as pg
 from vector import Vector
-from laser import Laser
 
 LEFT, RIGHT, UP, DOWN, STOP = 'left', 'right', 'up', 'down', 'stop'
 

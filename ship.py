@@ -87,5 +87,3 @@ class Ship(Sprite):
     rect = image.get_rect()
     rect.x, rect.y = self.rect.x, self.rect.y
     self.screen.blit(image, rect)
-    # self.screen.blit(self.image, self.rect)
-    # pg.draw.rect(self.screen, Game.RED, self.rect, 1)

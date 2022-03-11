@@ -18,6 +18,7 @@ class Alien_Lasers:
 
     def add(self, laser): self.lasers.add(laser)
     def empty(self): self.lasers.empty()
+    
     # def fire(self): 
     #     new_laser = Alien_Laser(self.game)
     #     self.lasers.add(new_laser)
