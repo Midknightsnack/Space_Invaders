@@ -56,8 +56,9 @@ class Laser(Sprite):
         self.center = copy(self.ship.center)
         # print(f'center is at {self.center}')
         # self.color = self.settings.laser_color
-        tu = 50, 255
-        self.color = randint(*tu), randint(*tu), randint(*tu)
+        # tu = 50, 255
+        # self.color = randint(*tu), randint(*tu), randint(*tu)
+        self.color = (128, 255, 255)
         self.v = Vector(0, -1) * self.settings.laser_speed_factor
 
     def update(self):

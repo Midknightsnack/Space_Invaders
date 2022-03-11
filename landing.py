@@ -1,13 +1,12 @@
+from decimal import HAVE_CONTEXTVAR
+import imghdr
 import pygame as pg
-import pygame.font
 import sys
-from alien import AlienFleet, Alien
+from alien import Alien
 from vector import Vector
-from settings import Settings
-from button import Button, ScoreButton
+from button import Button
 from pygame import mixer
 from stats import Stats
-
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -43,7 +42,7 @@ class LandingPage:
         strings = [('SPACE', WHITE, headingFont), ('INVADERS', GREEN, subheadingFont),
                    ('= 10 PTS', WHITE, font), ('= 20 PTS', WHITE, font),
                    ('= 30 PTS', WHITE, font), ('= ???', WHITE, font),
-                   #(f'HIGH SCORE = {self.highscore:,}', WHITE, font)
+                   (f'HIGH SCORE = {self.highscore:}', WHITE, font),
                    ] 
 
 
@@ -53,13 +52,13 @@ class LandingPage:
         alien = [60 * x + 400 for x in range(4)]
         # play_high = [x for x in range(650, 760, 80)]
         self.posns.extend(alien)
-        # self.posns.append(730)
+        self.posns.append(730)
         # self.posns.extend(play_high)
 
         centerx = self.screen.get_rect().centerx
         
         self.play_button = Button(self.screen, "PLAY GAME", ul=(centerx - 110, 650))
-        self.score_button = ScoreButton(self.screen, "HIGH SCORES", ul=(centerx - 130, 730))
+        # self.score_button = ScoreButton(self.screen, "HIGH SCORES", ul=(centerx - 130, 730))
         
         n = len(self.texts)
         self.rects = [self.get_text_rect(text=self.texts[i], centerx=centerx, centery=self.posns[i]) for i in range(n)]
@@ -116,7 +115,7 @@ class LandingPage:
         self.ufo.draw()
         self.draw_text()
         self.play_button.draw()
-        self.score_button.draw()
+        # self.score_button.draw()
         # self.alien_fleet.draw()   # TODO draw my aliens
         # self.lasers.draw()        # TODO dray my button and handle mouse events
         pg.display.flip()

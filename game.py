@@ -36,13 +36,14 @@ class Game:
         self.mixer = mixer.init()
          
     def restart(self):
+        # self.music.stop()
         if self.stats.ships_left == 0: 
           self.game_over()
         print("restarting game")
         self.lasers.empty()
         self.alien_fleet.empty()
         self.alien_fleet.create_fleet()
-        # self.settings.increase_speed()
+        self.settings.increase_speed()
         self.ship.center_bottom()
         self.ship.reset_timer()
         self.update()
@@ -64,14 +65,22 @@ class Game:
         self.alien_fleet.draw()
         self.lasers.draw()
         # self.alien_lasers.draw()
+        for n in range(6):
+            barrier0 = pg.image.load('images/barrier0.png')
+            self.screen.blit(barrier0, (50+(200*n), 550))
         self.scoreboard.draw()
         pg.display.flip()
         
     def play(self):
         self.finished = False
         self.music = pg.mixer.Sound('sounds/game_music.wav')
+        self.fast_game_music = mixer.Sound('sounds/fast_game_music.wav')
         self.music.play(loops=-1)
         self.music.set_volume(0.2)
+        # if len(self.alien_fleet.green_alien_images) == 0:
+        #     self.music.stop()
+        #     self.fast_game_music.play()
+        #     self.fast_game_music.set_volume(0.2)
         while not self.finished:
             self.update()
             self.draw()
@@ -81,9 +90,6 @@ class Game:
     def game_over(self): 
         print('\nGAME OVER!\n\n') 
         self.music.stop()
-        # g = Game()
-        # lp = LandingPage(game=g)
-        # lp.show()
         exit()    # can ask to replay here instead of exiting the game
 
 def main():

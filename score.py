@@ -3,7 +3,6 @@ from pygame.sprite import Group
 from ship import Ship
 
 PINK = (250, 165, 255)
-DARK_GREY = (30, 30, 30)
 
 class SbElement:
     def __init__(self, screen, bg_color, ul, font, get_score, round=True):
@@ -14,7 +13,7 @@ class SbElement:
         self.font = font
         self.round = round
         self.text_color = PINK
-        self.score_image, self.rect = None, None
+        self.score_image, self.score_rect = None, None
         self.get_score = get_score
         self.last_score = self.get_score()
         self.first_update = True
@@ -22,9 +21,9 @@ class SbElement:
 
     def update(self): 
         score = self.get_score()
-        if score != 0 and self.last_score == score: return
+        if not self.first_update and self.last_score == score: return
 
-        # self.first_update = False
+        self.first_update = False
         self.last_score = score
         score_str = str(score)
         if self.round:
