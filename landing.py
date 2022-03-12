@@ -42,8 +42,7 @@ class LandingPage:
         strings = [('SPACE', WHITE, headingFont), ('INVADERS', GREEN, subheadingFont),
                    ('= 10 PTS', WHITE, font), ('= 20 PTS', WHITE, font),
                    ('= 30 PTS', WHITE, font), ('= ???', WHITE, font),
-                   (f'HIGH SCORE = {self.highscore:}', WHITE, font),
-                   ] 
+                   (f'HIGH SCORE = {self.highscore:}', WHITE, font)] 
 
 
         self.texts = [self.get_text(msg=s[0], color=s[1], font=s[2]) for s in strings]
@@ -58,7 +57,6 @@ class LandingPage:
         centerx = self.screen.get_rect().centerx
         
         self.play_button = Button(self.screen, "PLAY GAME", ul=(centerx - 110, 650))
-        # self.score_button = ScoreButton(self.screen, "HIGH SCORES", ul=(centerx - 130, 730))
         
         n = len(self.texts)
         self.rects = [self.get_text_rect(text=self.texts[i], centerx=centerx, centery=self.posns[i]) for i in range(n)]
