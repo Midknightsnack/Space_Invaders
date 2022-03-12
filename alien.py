@@ -7,12 +7,11 @@ from pygame import mixer
 
 
 class AlienFleet:
-    alien_exploding_images = [pg.image.load(f'images/rainbow_explode{n}.png') for n in range(8)]
+    alien_exploding_images = [pg.image.load(f'images/explosion{n}.png') for n in range(8)]
     green_alien_images = [pg.image.load(f'images/green_alien{n}.png') for n in range(2)]
     blue_alien_images = [pg.image.load(f'images/blue_alien{n}.png') for n in range(2)]
     purp_alien_images = [pg.image.load(f'images/purp_alien{n}.png') for n in range(2)]
     ufo_images = [pg.image.load(f'images/ufo{n}.png') for n in range(2)]
-    # ufo_exploding_images = [pg.image.load(f'images/bigscore{n}.png') for n in range(5)]
 
     def __init__(self, game, v=Vector(1, 0)):  
         self.game = game

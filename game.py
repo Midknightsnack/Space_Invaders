@@ -74,7 +74,7 @@ class Game:
     def play(self):
         self.finished = False
         self.music = pg.mixer.Sound('sounds/game_music.wav')
-        self.fast_game_music = mixer.Sound('sounds/fast_game_music.wav')
+        # self.fast_game_music = mixer.Sound('sounds/fast_game_music.wav')
         self.music.play(loops=-1)
         self.music.set_volume(0.2)
         # if len(self.alien_fleet.green_alien_images) == 0:
@@ -88,6 +88,9 @@ class Game:
         self.game_over()
 
     def game_over(self): 
+        # self.gameover_music = pg.mixer.Sound('sounds/game_over.wav')
+        # self.gameover_music.play()
+        # self.gameover_music.set_volume(0.2)
         print('\nGAME OVER!\n\n') 
         self.music.stop()
         exit()    # can ask to replay here instead of exiting the game

@@ -5,7 +5,7 @@ from pygame.sprite import Sprite, Group
 from pygame import mixer
 
 class Ship(Sprite):
-  exploding_images = [pg.image.load(f'images/explode{n}.png') for n in range(8)]
+  exploding_images = [pg.image.load(f'images/blue_explosion{n}.png') for n in range(8)]
   images = [pg.image.load(f'images/spaceship.png') for n in range(1)]
    
   def __init__(self, game):
